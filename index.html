@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="classic">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Notes App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo glow"></span>
+      <h1>Notorium</h1>
+    </div>
+    <nav class="top-actions">
+      <a class="btn ghost" href="index.html" id="homeLink" title="Back to Notes Home">Home</a>
+      <a class="btn ghost" href="guide.html" title="Beginner's Guide">Guide</a>
+      <button id="themeToggle" class="btn ghost" title="Switch Theme">Theme</button>
+      <button id="exportBtn" class="btn ghost" title="Export Notes">Export</button>
+      <label class="btn ghost file-label" title="Import Notes">
+        Import <input type="file" id="importInput" accept="application/json" hidden/>
+      </label>
+      <a class="btn primary" href="#" id="newNoteBtn" title="New (N)">New Note</a>
+    </nav>
+  </header>
+
+  <section class="toolbar">
+    <div class="search-wrap">
+      <input id="searchInput" type="search" placeholder="Search title, content, or #tag (press / to focus)" />
+    </div>
+    <div class="filters">
+      <select id="sortSelect" title="Sort">
+        <option value="updatedAt-desc">Recent</option>
+        <option value="createdAt-desc">Newest</option>
+        <option value="title-asc">Title A-Z</option>
+      </select>
+      <div class="chip-group" id="tagFilterChips"></div>
+      <div class="switches">
+        <label class="toggle">
+          <input type="checkbox" id="showArchived" />
+          <span>Archived</span>
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="showTrash" />
+          <span>Trash</span>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <main class="grid" id="grid"></main>
+
+  <!-- Editor Modal -->
+  <div class="modal-backdrop" id="editorBackdrop" hidden></div>
+  <div class="editor-panel" id="editor" aria-hidden="true">
+    <div class="editor-header">
+      <input id="noteTitle" class="title" placeholder="Note title..." />
+      <div class="editor-actions">
+        <button class="icon-btn" id="pinBtn" title="Pin/Unpin">📌</button>
+        <button class="icon-btn" id="archiveBtn" title="Archive/Unarchive">🗄️</button>
+        <button class="icon-btn danger" id="trashBtn" title="Move to Trash">🗑️</button>
+        <button class="btn" id="closeEditor">Back to Notes</button>
+      </div>
+    </div>
+    <textarea id="noteContent" class="content" placeholder="Write your note..."></textarea>
+
+    <section class="editor-footer">
+      <div class="palette" id="colorPalette" title="Color">
+        <button data-color="vanilla" class="swatch vanilla"></button>
+        <button data-color="mint" class="swatch mint"></button>
+        <button data-color="rose" class="swatch rose"></button>
+        <button data-color="sky" class="swatch sky"></button>
+        <button data-color="lavender" class="swatch lavender"></button>
+        <button data-color="gold" class="swatch gold"></button>
+      </div>
+      <div class="tags">
+        <div id="tagList" class="tag-list"></div>
+        <input id="tagInput" class="tag-input" placeholder="Add tag and press Enter" />
+      </div>
+      <div class="meta" id="meta"></div>
+    </section>
+  </div>
+
+  <div id="snackbar" class="snackbar" aria-live="polite"></div>
+
+  <template id="noteCardTpl">
+    <article class="card glow-hover" draggable="false">
+      <header>
+        <h3 class="card-title"></h3>
+        <div class="card-icons">
+          <button class="icon-btn pin" title="Pin">📌</button>
+          <button class="icon-btn archive" title="Archive">🗄️</button>
+          <button class="icon-btn trash" title="Trash">🗑️</button>
+        </div>
+      </header>
+      <div class="card-body"></div>
+      <footer class="card-footer">
+        <div class="tags"></div>
+        <time class="stamp"></time>
+      </footer>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>

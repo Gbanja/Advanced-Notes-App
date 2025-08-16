@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="classic">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notorium Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="guide-body">
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo glow"></span>
+      <h1>Notorium Guide</h1>
+    </div>
+    <nav class="top-actions">
+      <a class="btn ghost" href="index.html">Back to App</a>
+    </nav>
+  </header>
+
+  <main class="guide">
+    <section class="hero glow-hover">
+      <h2>Welcome to Notorium ✨</h2>
+      <p>Your advanced notes app—classic look, fun energy.</p>
+      <button class="btn primary" id="spawnDemo">Show me a demo</button>
+    </section>
+
+    <section class="steps">
+      <div class="step">
+        <h3 class="step-title">1. Create a note</h3>
+        <p>Click <strong>New Note</strong> or press <kbd>N</kbd>. Then give it a title and start typing. Everything auto-saves. Use <strong>Back to Notes</strong> in the editor to return to the home view.</p>
+      </div>
+      <div class="step">
+        <h3 class="step-title">2. Pin, color, and tag</h3>
+        <p>Open a note and use the pin 📌, palette, and tag input. Tags help you find notes later with <code>#tag</code> in search.</p>
+      </div>
+      <div class="step">
+        <h3 class="step-title">3. Search and sort</h3>
+        <p>Use the search bar (press <kbd>/</kbd>) to find content or tags. Sort by recent, newest, or title.</p>
+      </div>
+      <div class="step">
+        <h3 class="step-title">4. Archive or Trash</h3>
+        <p>Archive tidies notes you don't need daily. Trash removes, but you can undo. You can restore items from both views.</p>
+      </div>
+      <div class="step">
+        <h3 class="step-title">5. Export and Import</h3>
+        <p>Backup your notes with <strong>Export</strong>. Restore them with <strong>Import</strong> (JSON file).</p>
+      </div>
+      <div class="step">
+        <h3 class="step-title">6. Shortcuts</h3>
+        <ul>
+          <li><kbd>N</kbd> – New note</li>
+          <li><kbd>/</kbd> – Focus search</li>
+          <li><kbd>Esc</kbd> – Close editor</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="demo-board glow-hover">
+      <h3 class="step-title">Interactive Playground</h3>
+      <p>Try actions on sample notes below. This is sandboxed and won't touch your real notes.</p>
+      <div class="demo-controls">
+        <button class="btn" id="demoAdd">Add Sample Note</button>
+        <button class="btn ghost" id="demoShuffle">Shuffle</button>
+        <button class="btn danger" id="demoClear">Clear</button>
+      </div>
+      <div id="demoGrid" class="grid compact"></div>
+    </section>
+  </main>
+
+  <script src="guide.js"></script>
+</body>
+</html>
